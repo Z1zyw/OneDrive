@@ -24,9 +24,9 @@ NET_IF=$(ip -o -4 route show to default | awk '{print $5}' | head -n1)
 ########################## NCCL/GLOO Environment ####################
 export NCCL_SOCKET_IFNAME=$NET_IF
 export GLOO_SOCKET_IFNAME=$NET_IF
-export NCCL_IB_DISABLE=1
-export NCCL_SHM_DISABLE=1
-export NCCL_P2P_DISABLE=1
+export NCCL_IB_DISABLE=0
+export NCCL_SHM_DISABLE=0
+export NCCL_P2P_DISABLE=0
 export TORCH_NCCL_BLOCKING_WAIT=1
 export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
 export NCCL_TIMEOUT=3600
@@ -35,7 +35,7 @@ export NCCL_DEBUG=WARN
 export CUDA_VISIBLE_DEVICES=$(seq -s, 0 $(($GPU_PER_NODE - 1)))
 
 
-conda activate onedrive
+conda activate OneDrive
 
 ########################## Print Parameters ##########################
 echo "========== Distributed Launch =========="

@@ -244,7 +244,7 @@ model = dict(
         num_extra=num_extra,
         use_seq_query=True,
         two_layer_cross_attn=True,
-        kmeans_anchor_path='/nfs/dataset-ofs-voyager-research/xschen/repos/SparseDrive/data/kmeans/kmeans_plan_6.npy',
+        kmeans_anchor_path='other/kmeans_plan_6.npy', # from SparseDrive
         ) if use_e2e else None,
     
     train_cfg=dict(pts=dict(

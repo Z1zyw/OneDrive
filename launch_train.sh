@@ -35,7 +35,7 @@ export NCCL_DEBUG=WARN
 export CUDA_VISIBLE_DEVICES=$(seq -s, 0 $(($GPU_PER_NODE - 1)))
 
 
-conda activate colavla
+conda activate onedrive
 
 ########################## Print Parameters ##########################
 echo "========== Distributed Launch =========="

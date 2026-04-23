@@ -245,7 +245,7 @@ model = dict(
         num_extra=num_extra,
         use_seq_query=True,
         two_layer_cross_attn=True,
-        kmeans_anchor_path='/nfs/dataset-ofs-voyager-research/xschen/repos/SparseDrive/data/kmeans/kmeans_plan_6.npy',
+        kmeans_anchor_path='other/kmeans_plan_6.npy', # from SparseDrive
         ) if use_e2e else None,
     
     train_cfg=dict(pts=dict(
@@ -411,9 +411,9 @@ runner = dict(
     type='IterBasedRunner', max_iters=num_epochs * num_iters_per_epoch)
 
 resume_from=None
-load_from=None
+# load_from=None
 
-# load_from = "----YOUR Stage1 CKPT----"
+load_from = "----YOUR Stage1 CKPT----"
 
 log_config = dict(  # config of reister logger hook
     interval=5,  # Interval to print the log

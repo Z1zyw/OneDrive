@@ -1,5 +1,7 @@
 # Environment Setup
 
+Our work is built upon mniDrive[https://github.com/NVlabs/OmniDrive]. For more details on the original implementation and setup, please refer to the official documentations.
+
 **1. Download nuScenes**
 
 Download the [nuScenes dataset](https://www.nuscenes.org/download) to `./data/nuscenes`.
@@ -11,7 +13,7 @@ Unzip the data_nusc.tar.gz and move the files into data/nuscenes/.
 
 The pkl info is generated using StreamPETR's data converter. We converted the GT in the lidar coordinate to an ego coordinate system using update_coords.py (to align with OpenLanev2) and added canbus/command information.
 
-**3. Install Packages**
+**3. Install Packages and VLM**
 ```shell
 cd /path/to/OneDrive
 conda create -n OneDrive python=3.9
@@ -31,6 +33,11 @@ pip install -e .
 cd ..
 pip install -r requirements.txt
 ```
+
+```shell
+mkdir ckpts
+```
+Download [InternVL3](https://huggingface.co/OpenGVLab/InternVL3-1B)
 
 After preparation, you will be able to see the following directory structure:  
 
@@ -61,13 +68,3 @@ OneDrive
 │   │   ├── data_dict_subset_B_val.pkl
 │   │   ├── lane_obj_train.pkl
 ```
-
-<!-- ## Pretrained Weights
-```shell
-cd /path/to/OmniDrive
-mkdir ckpts
-```
-Please download the pretrained [2D llm weights](https://drive.google.com/drive/folders/1yqNyAp3Pp9CdENpah6AiMt3IfOXbqeUO?usp=sharing) and [vision encoder + projector weights]() to ./ckpts.
-
-The [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) are extracted from ckpts/pretrain_qformer/, which is pretrained by using llava data. -->
-You can also refer to the official OmniDrive[https://github.com/NVlabs/OmniDrive] documentation to supplement some QA-dataset-related folders.
